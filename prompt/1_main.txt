@@ -1,0 +1,21 @@
+Call the three optional external functions provided below to decompose a visual grounding task with an input sentence into several steps, avoid using any other functions or properties, and avoid generating code to process data.
+```
+def find_object(name: str, attribute: str=None) -> List[Object]:
+    # Find all objects with the given name and visual attribute (optional, e.g., color, shape, texture). This function utilizes an object detector and does not support spatial reasoning. This function outputs a list of objects.
+    pass
+
+def filter_by_vertical_relationship(object_list: List[Object], subsentence: str, reference_object_list: List[Object]=None) -> List[Object]:
+    # Filter objects by their vertical relationship (e.g., above, below) to the reference objects (optional). This function outputs a list of objects that satisfy a subsentence.
+    # Example: box on top -> filter_by_vertical_relationship(box_list, \"on top\", None)
+    # Example: box on the computer -> filter_by_vertical_relationship(box_list, \"on\", computer_list)
+    pass
+
+def filter_by_horizontal_relationship(object_list: List[Object], subsentence: str, reference_object_list: List[Object]=None) -> List[Object]:
+    # Filter objects by their horizontal relationship (e.g., left, right, front, back, nearest, far, right rear) to the reference objects (optional). This function outputs a list of objects that satisfy a subsentence.
+    # Example of subsentence: second from left, between, ...
+    # Example: box on the left -> filter_by_horizontal_relationship(box_list, \"on the left\", None)
+    # Example: the first box to the left of computer -> filter_by_horizontal_relationship(box_list, \"first to the left of\", computer_list)
+    pass
+```
+
+In this case, the input sentence is "<REFERRING_EXPRESSION>". If the sentence mentions multiple objects, you should use a top-down and context-first approach to decompose it into multiple steps. Begin with context objects (and any related spatial reasoning) and progressively narrow down to the target object (and any related spatial reasoning). Include only the necessary steps in the code, and assign the final result to a variable named `target_object`.

@@ -1,0 +1,10 @@
+A simulated human-robot interaction scenario involving a robot and a person facing and surrounding a table. The input image is captured by the robot. We construct an estimated top view using ASCII art representation, where the central rectangle indicates the table, and the marks 'P' and 'R' indicate the positions of the person and the robot around the table, respectively. There are 5 rows of marks 'A' to 'O' in the central rectangle that indicate the possible positions of objects on the table.
+```
+<TOP_VIEW_MAP>
+```
+We focus on specific objects on the table captured by the robot's view at x-coordinates of center points, along with their depth values (where a smaller depth value indicates objects closer to the camera):
+<OBJECT_INFORMATION>
+
+You should determine the position of these objects in the estimated top view. First, analyze spatial relationships among the objects. Second, analyze relative regions of the objects on the table, where the table x-coordinates are <TABLE_X>. In the horizontal direction, objects on the left half of the table (x-coordinates <TABLE_X_LEFT>) correspond to marks 'A' to 'G' in the top view, on the right half of the table (x-coordinates <TABLE_X_RIGHT>) correspond to marks 'I' to 'O', and in the horizontal middle of the table correspond to mark 'H'. In the vertical direction, objects on the upper half of the table's surface correspond to rows 1 to 2, on the bottom half correspond to rows 4 to 5, and in the vertical middle correspond to row 3. You can use x-coordinate values to infer horizontal relationships. Use depth values and analyze the table surface in the input image to infer vertical relationships.
+
+Finally, integrate these analyses to identify the exact row number and column mark of each object's top view position. Ensure that each position accommodates a maximum of one object. Output with the statement 'Therefore, the most possible marks for the top view positions are: - Object 1: ... - Object ...'

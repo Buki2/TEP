@@ -1,0 +1,5 @@
+According to the given information and your knowledge, answer the question.
+
+Your task is to identify the <LETTER_OR_LETTERS> <SPATIAL_RELATIONSHIP> in the input figure using the designated <TARGET_DIRECTION> arrows in the figure. First, interpret "<SPATIAL_RELATIONSHIP>" relative to the intended orientation. For example, "rear" and "behind" align with the back direction, while "close" and "near" align with the front direction. Then, disregard conventional <TARGET_DIRECTION> directions, focusing solely on the designated arrows within the figure. The letter that extends further in the direction of the arrow conforms more to a specific orientation. Output and assign the target <LETTER_OR_LETTERS> to the variable target_letter = .
+
+Let's think step by step.

@@ -1,0 +1,31 @@
+A simulated human-robot interaction scene involving a robot and a person facing and surrounding a table. The input image is captured by the robot. The coordinates [x_min, y_min, x_max, y_max] and depth values (smaller depth value corresponds to objects closer to the robot) of the person and the table are as follows:
+<OBJECT_INFORMATION>
+Based on this scene, we construct an estimated top view using ASCII art representation, where the central rectangle indicates the table, and the robot, i.e., the scene shooter, positions at the bottom center. Number marks 1 to 15 in the top view represent the possible positions of the person.
+```
+  +-----------------------+
+  | 1    2    3    4    5 |
+  |   +---------------+   |
+  | 15|     Table     | 6 |
+  |   |               |   |
+  | 14|               | 7 |
+  |   |               |   |
+  | 13|               | 8 |
+  |   +---------------+   |
+  | 12  11  Robot  10   9 |
+  +-----------------------+
+```
+
+To determine the person's position, you should firstly understand the input image and use depth values to analyze whether the person is on the opposite side of the table, on the left/right side of the table, or on the same side of the table as the robot.
+
+Secondly, you should understand the input image to further analyze the person's position. You can use x-coordinate values to infer horizontal relationships and determine the position of the person's center point x_center=<INT_X_CENTER_PERSON> in the horizontal direction.
+1. If the person is on the opposite side of the table:
+- If the front of the person is fully visible and the person is directly across the table, it corresponds to mark 3, while slightly to the left corresponds to mark 2 and slightly to the right corresponds to mark 4.
+- If the person is diagonally facing the table, in this case if the person is in the left rear corner it corresponds to mark 1, while if the person is in the right rear corner it corresponds to mark 5.
+2. If the person is on the left/right side of the table:
+- If the side of the person is observable and the person is directly on the right of the table, it corresponds to mark 7. In this case, if the front of the person is partially visible, it corresponds to mark 6, while if the back of the person is partially visible, it corresponds to mark 8.
+- If the side of the person is observable and the person is directly on the left of the table, it corresponds to mark 14. In this case, if the front of the person is partially visible, it corresponds to mark 15, while if the back of the person is partially visible, it corresponds to mark 13.
+3. If the person is on the same side of the table as the robot:
+If the person is in the right corner, in this case if the back of the person is partially visible it corresponds to mark 9, while if the back is fully visible it corresponds to mark 10.
+If the person is in the left corner, in this case if the back of the person is partially visible it corresponds to mark 12, while if the back is fully visible it corresponds to mark 11.
+
+Finally, integrate the preceding analysis results and present a conclusion, stating 'Therefore, the most possible number mark for the person's position in the top view would be ...'

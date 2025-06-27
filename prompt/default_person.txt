@@ -1,0 +1,12 @@
+  +-----------------------+
+  | 1    2    3    4    5 |
+  |   +---------------+   |
+  | 15|ABCDEFGHIJKLMNO| 6 |
+  |   |ABCDEFGHIJKLMNO|   |
+  | 14|ABCDEFGHIJKLMNO| 7 |
+  |   |ABCDEFGHIJKLMNO|   |
+  | 13|ABCDEFGHIJKLMNO| 8 |
+  |   +---------------+   |
+  | 12  11    R    10   9 |
+  +-----------------------+
+  
